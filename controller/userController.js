@@ -1,18 +1,14 @@
-
 const { Op } = require("sequelize");
 const Model = require("../models");
-
 const users = Model.users;
 const posts = Model.posts;
 
 const table = async (req, res) => {
   try {
     let allData = await users.findAll({});
-
     res.render("table.ejs", allData);
   } catch (error) {}
 };
-
 const getdata = async (req, res) => {
   const { draw ,order} = req.query;
   const search = req.query.search || null;
@@ -24,11 +20,8 @@ const getdata = async (req, res) => {
   if(order){
   var column = order[0].column;
   var dir = order[0].dir;
-
-
 columnOrder = columns[column];
 orderDirection = dir.toUpperCase();
-
 }
 
 if (column == 4) {
@@ -38,8 +31,6 @@ if (column == 4) {
     } else {
     var orderBy = [[columnOrder, orderDirection]];
     }
-    
-
   const query = {
     subQuery: false,
     where: {

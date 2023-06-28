@@ -1,15 +1,14 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const con = require('./models/index');
-const userController=require('./controller/userController.js');
-const createtable =require('./routes/userRouter')
+const con = require("./models/index");
+const userController = require("./controller/userController.js");
+const createtable = require("./routes/userRouter");
 
 // app.get('/add', userctrl.addUser);
-app.set('view engine', 'ejs')
+app.set("view engine", "ejs");
 app.use(express.json());
-app.use('/',createtable)
+app.use("/", createtable);
 
-
-app.listen(3000, () => {
-    console.log(`Server is Running on 3000`);
-})
+app.listen(3001, () => {
+  console.log(`Server is Running on 3001`);
+});
